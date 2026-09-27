@@ -7,20 +7,28 @@ import routes from "./routes/index.js";
 
 const clientDist = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../client/dist");
 
-const allowedOrigins = [
+const configuredOrigins = [
   "http://localhost:5173",
-  "https://harry-potter-shop-indol.vercel.app",
+  "https://harry-potter-shop.vercel.app",
   ...String(process.env.CLIENT_ORIGIN || "")
     .split(",")
     .map((value) => value.trim())
     .filter(Boolean),
 ];
 
+function isAllowedOrigin(origin) {
+  if (!origin) return true;
+  if (configuredOrigins.includes(origin)) return true;
+  return /^https:\/\/harry-potter-shop(-[a-z0-9]+)?\.vercel\.app$/.test(origin);
+}
+
 const app = express();
 
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin(origin, callback) {
+      callback(null, isAllowedOrigin(origin));
+    },
   }),
 );
 app.use(express.json());

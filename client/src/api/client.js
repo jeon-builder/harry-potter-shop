@@ -1,4 +1,13 @@
-const API_URL = String(import.meta.env.VITE_API_URL || "/api").replace(/\/+$/, "");
+function resolveApiUrl(value) {
+  let url = String(value || "/api").trim().replace(/\/+$/, "");
+  url = url.replace(/([^:]\/)\/+/g, "$1");
+  if (/^https?:\/\//i.test(url) && !/\/api$/i.test(url)) {
+    url = `${url}/api`;
+  }
+  return url || "/api";
+}
+
+const API_URL = resolveApiUrl(import.meta.env.VITE_API_URL);
 const TOKEN_KEY = "hp-shop-token";
 
 function authHeaders() {
