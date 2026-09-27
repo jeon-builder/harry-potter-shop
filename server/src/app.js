@@ -1,6 +1,11 @@
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 import express from "express";
 import cors from "cors";
 import routes from "./routes/index.js";
+
+const clientDist = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../client/dist");
 
 const app = express();
 
@@ -12,6 +17,17 @@ app.use(
 app.use(express.json());
 
 app.use("/api", routes);
+
+if (fs.existsSync(clientDist)) {
+  app.use(express.static(clientDist));
+  app.get("*", (req, res, next) => {
+    if (req.path.startsWith("/api")) {
+      next();
+      return;
+    }
+    res.sendFile(path.join(clientDist, "index.html"));
+  });
+}
 
 app.use((_req, res) => {
   res.status(404).json({ message: "Not found" });

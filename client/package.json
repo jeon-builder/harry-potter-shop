@@ -10,7 +10,7 @@
     "lint": "node ./scripts/run-with-modern-node.cjs ./node_modules/eslint/bin/eslint.js src --ext js,jsx --report-unused-disable-directives --max-warnings 0"
   },
   "engines": {
-    "node": ">=14.17.0"
+    "node": ">=18"
   },
   "dependencies": {
     "react": "^18.3.1",
