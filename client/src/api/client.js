@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || "/api";
+const API_URL = String(import.meta.env.VITE_API_URL || "/api").replace(/\/+$/, "");
 const TOKEN_KEY = "hp-shop-token";
 
 function authHeaders() {
