@@ -4,7 +4,7 @@ export async function connectDB(uri) {
   mongoose.set("strictQuery", true);
 
   await mongoose.connect(uri, {
-    serverSelectionTimeoutMS: 15000,
+    serverSelectionTimeoutMS: 30000,
   });
 
   console.log(`MongoDB connected: ${mongoose.connection.name}`);
