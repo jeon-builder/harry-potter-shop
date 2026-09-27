@@ -1,0 +1,28 @@
+{
+  "name": "harry-potter-shop-client",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node ./scripts/run-with-modern-node.cjs ./node_modules/vite/bin/vite.js",
+    "build": "node ./scripts/run-with-modern-node.cjs ./node_modules/vite/bin/vite.js build",
+    "preview": "node ./scripts/run-with-modern-node.cjs ./node_modules/vite/bin/vite.js preview",
+    "lint": "node ./scripts/run-with-modern-node.cjs ./node_modules/eslint/bin/eslint.js src --ext js,jsx --report-unused-disable-directives --max-warnings 0"
+  },
+  "engines": {
+    "node": ">=14.17.0"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.34.2",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7",
+    "vite": "^5.4.19"
+  }
+}

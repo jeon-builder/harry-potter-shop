@@ -1,0 +1,50 @@
+:root {
+  --navy: #0a1c4d;
+  --navy-deep: #071436;
+  --gold: #d4af37;
+  --gold-dim: #c5a35a;
+  --parchment: #f4ead0;
+  --cream: #f6f1e6;
+  --ink: #1b1b1b;
+  --muted: #d8c9a8;
+  font-family: "Noto Sans KR", "Hiragino Sans", "Apple SD Gothic Neo", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--parchment);
+  background-color: var(--navy);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+body {
+  min-width: 320px;
+  background:
+    radial-gradient(ellipse at 28% 18%, rgba(42, 78, 168, 0.38), transparent 52%),
+    radial-gradient(ellipse at 80% 90%, rgba(7, 20, 54, 0.85), transparent 46%),
+    var(--navy);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}

@@ -1,0 +1,31 @@
+{
+  "name": "harry-potter-shop-server",
+  "version": "1.0.0",
+  "description": "Harry Potter shop API server",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [
+    "express",
+    "mongodb",
+    "harry-potter"
+  ],
+  "license": "ISC",
+  "engines": {
+    "node": ">=14.17.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.13.11"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

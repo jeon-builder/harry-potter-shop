@@ -1,0 +1,7 @@
+.tools/
+.DS_Store
+node_modules/
+.env
+server/.mongodb/
+server/data/
+npm-debug.log*
