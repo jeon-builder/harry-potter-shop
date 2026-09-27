@@ -4,7 +4,7 @@ import { addCartItem, fetchProduct, fetchProducts } from "../api/client.js";
 import { useAuth } from "../auth/AuthContext.jsx";
 import ShopFooter from "../components/ShopFooter.jsx";
 import ShopHeader from "../components/ShopHeader.jsx";
-import { formatPrice } from "../data/home.js";
+import { displayCategory, formatPrice } from "../data/home.js";
 import "./ProductDetailPage.css";
 
 function ProductDetailPage() {
@@ -40,7 +40,11 @@ function ProductDetailPage() {
           if (cancelled) return;
           setRelated(
             list
-              .filter((entry) => entry._id !== item._id && entry.category === item.category)
+              .filter(
+                (entry) =>
+                  entry._id !== item._id &&
+                  displayCategory(entry.category) === displayCategory(item.category),
+              )
               .slice(0, 4),
           );
         });
@@ -105,7 +109,7 @@ function ProductDetailPage() {
           <nav className="product-breadcrumb" aria-label="현재 위치">
             <Link to="/">홈</Link>
             <span aria-hidden="true">/</span>
-            <Link to="/#pickup">{product.category}</Link>
+            <Link to="/#pickup">{displayCategory(product.category)}</Link>
             <span aria-hidden="true">/</span>
             <span>{product.name}</span>
           </nav>
@@ -113,7 +117,7 @@ function ProductDetailPage() {
           <section className="product-detail-hero">
             <div className="product-detail-media">
               <img src={product.image} alt={product.name} />
-              <em>{product.category}</em>
+              <em>{displayCategory(product.category)}</em>
             </div>
 
             <div className="product-detail-info">
@@ -164,7 +168,7 @@ function ProductDetailPage() {
                   <Link key={item._id} className="product-card" to={`/products/${item._id}`}>
                     <div className="product-thumb">
                       <img src={item.image} alt={item.name} />
-                      <em>{item.category}</em>
+                      <em>{displayCategory(item.category)}</em>
                     </div>
                     <h3>{item.name}</h3>
                     <p>{formatPrice(item.price)}</p>

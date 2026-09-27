@@ -1,6 +1,6 @@
 export const categories = [
   { id: "all", label: "전체", icon: "✦" },
-  { id: "마법약", label: "마법약", icon: "❀" },
+  { id: "마법약물", label: "마법약물", icon: "❀" },
   { id: "지팡이", label: "지팡이", icon: "/" },
   { id: "마법동물", label: "마법동물", icon: "⌂" },
   { id: "마법아이템", label: "마법아이템", icon: "◇" },
@@ -41,4 +41,13 @@ export const houses = [
 
 export function formatPrice(value) {
   return `₩${value.toLocaleString("ko-KR")} (세금포함)`;
+}
+
+export function displayCategory(category) {
+  return category === "마법약" ? "마법약물" : category;
+}
+
+export function matchesCategory(category, filterId) {
+  if (filterId === "마법약물") return category === "마법약물" || category === "마법약";
+  return category === filterId;
 }

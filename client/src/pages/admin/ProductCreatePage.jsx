@@ -6,13 +6,13 @@ import CloudinaryUploadField from "../../components/CloudinaryUploadField.jsx";
 import ShopFooter from "../../components/ShopFooter.jsx";
 import ShopHeader from "../../components/ShopHeader.jsx";
 
-const CATEGORIES = ["마법약", "지팡이", "마법동물", "마법아이템"];
+const CATEGORIES = ["마법약물", "지팡이", "마법동물", "마법아이템"];
 
 const INITIAL_FORM = {
   sku: "",
   name: "",
   price: "",
-  category: "마법약",
+  category: "마법약물",
   image: "",
   description: "",
 };

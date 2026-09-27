@@ -6,7 +6,7 @@ import PageLoader from "../components/PageLoader.jsx";
 import { fetchProducts } from "../api/client.js";
 import ShopFooter from "../components/ShopFooter.jsx";
 import ShopHeader from "../components/ShopHeader.jsx";
-import { categories, featureItems, formatPrice, houses } from "../data/home.js";
+import { categories, displayCategory, featureItems, formatPrice, houses, matchesCategory } from "../data/home.js";
 import { useReveal } from "../hooks/useReveal.js";
 import "./HomePage.css";
 
@@ -23,7 +23,7 @@ function HomePage() {
   const visibleProducts =
     activeCategory === "all"
       ? products
-      : products.filter((item) => item.category === activeCategory);
+      : products.filter((item) => matchesCategory(item.category, activeCategory));
 
   useReveal(contentReady && !loaderVisible && productStatus !== "loading");
 
@@ -125,7 +125,7 @@ function HomePage() {
               >
                 <div className="product-thumb">
                   <img src={item.image} alt={item.name} />
-                  <em>{item.category}</em>
+                  <em>{displayCategory(item.category)}</em>
                 </div>
                 <h3>{item.name}</h3>
                 <p>{formatPrice(item.price)}</p>

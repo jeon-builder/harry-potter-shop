@@ -4,7 +4,7 @@ import { deleteCart, deleteCartItem, fetchCart, updateCartItem } from "../api/cl
 import { useAuth } from "../auth/AuthContext.jsx";
 import ShopFooter from "../components/ShopFooter.jsx";
 import ShopHeader from "../components/ShopHeader.jsx";
-import { formatPrice } from "../data/home.js";
+import { displayCategory, formatPrice } from "../data/home.js";
 import "./CartPage.css";
 
 function getProduct(item) {
@@ -140,7 +140,7 @@ function CartPage() {
                       <img src={product.image} alt={product.name} />
                     </Link>
                     <div className="cart-item-body">
-                      <p className="cart-item-meta">{product.category}</p>
+                      <p className="cart-item-meta">{displayCategory(product.category)}</p>
                       <h2>
                         <Link to={`/products/${product._id}`}>{product.name}</Link>
                       </h2>

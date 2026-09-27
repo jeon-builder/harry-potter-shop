@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, Navigate, useLocation } from "react-router-dom";
 import { deleteProduct, fetchProducts } from "../../api/client.js";
+import { displayCategory } from "../../data/home.js";
 import { useAuth } from "../../auth/AuthContext.jsx";
 import ShopFooter from "../../components/ShopFooter.jsx";
 import ShopHeader from "../../components/ShopHeader.jsx";
@@ -93,7 +94,7 @@ function ProductListPage() {
                 </Link>
                 <div className="admin-product-body">
                   <p className="admin-product-meta">
-                    {item.sku} · {item.category}
+                    {item.sku} · {displayCategory(item.category)}
                   </p>
                   <h2>
                     <Link to={`/products/${item._id}`}>{item.name}</Link>

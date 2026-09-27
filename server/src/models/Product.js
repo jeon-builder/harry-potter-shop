@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-export const PRODUCT_CATEGORIES = ["마법약", "지팡이", "마법동물", "마법아이템"];
+export const PRODUCT_CATEGORIES = ["마법약물", "마법약", "지팡이", "마법동물", "마법아이템"];
 
 const productSchema = new mongoose.Schema(
   {

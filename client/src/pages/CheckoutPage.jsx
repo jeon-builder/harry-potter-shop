@@ -4,6 +4,7 @@ import { createOrder, fetchCart } from "../api/client.js";
 import { useAuth } from "../auth/AuthContext.jsx";
 import ShopFooter from "../components/ShopFooter.jsx";
 import ShopHeader from "../components/ShopHeader.jsx";
+import { displayCategory } from "../data/home.js";
 import { CURRENCIES, KRW_PER_JPY, formatMoneyFromKrw, toChargeAmount } from "../config/currency.js";
 import {
   hasPortOneChannel,
@@ -240,7 +241,7 @@ function CheckoutPage() {
                       </Link>
                       <div className="cart-item-body">
                         <p className="cart-item-meta">
-                          {product.category} · {item.quantity}개
+                          {displayCategory(product.category)} · {item.quantity}개
                         </p>
                         <h2>
                           <Link to={`/products/${product._id}`}>{product.name}</Link>
